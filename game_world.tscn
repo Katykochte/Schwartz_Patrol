@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbxiadhrp1kpl"]
+
+[ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://gameworld.gd" id="1_ea1x0"]
+[ext_resource type="Texture2D" uid="uid://cnqievebyaefp" path="res://ground_grass.png" id="2_e3xe6"]
+[ext_resource type="Script" uid="uid://c86bk0rg161ui" path="res://player.gd" id="2_e08lw"]
+[ext_resource type="Texture2D" uid="uid://dlfbvmog4a5n3" path="res://Schwartz.jpg" id="3_e3xe6"]
+[ext_resource type="Texture2D" uid="uid://btoavs6w5ny41" path="res://wall.jpg" id="3_mcbma"]
+[ext_resource type="Texture2D" uid="uid://b481follvtvhx" path="res://error.png" id="6_mcbma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
+size = Vector2(122, 155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik71a"]
+size = Vector2(111.5, 118)
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_ea1x0")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -18.0
+offset_top = -6.0
+offset_right = 1152.0
+offset_bottom = 1018.0
+texture = ExtResource("2_e3xe6")
+stretch_mode = 6
+
+[node name="Wall1" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -30.0
+offset_top = 578.0
+offset_right = 1172.0
+offset_bottom = 731.0
+texture = ExtResource("3_mcbma")
+expand_mode = 1
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(543, 661)
+script = ExtResource("2_e08lw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-2, -7)
+shape = SubResource("RectangleShape2D_mcbma")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-3, -4)
+scale = Vector2(0.32031253, 0.26909724)
+texture = ExtResource("3_e3xe6")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 432.0
+offset_top = 735.0
+offset_right = 650.0
+offset_bottom = 773.0
+placeholder_text = "Enter cmd (a or d)"
+
+[node name="Enemy1" type="CharacterBody2D" parent="."]
+position = Vector2(199, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_ik71a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy1"]
+position = Vector2(-1.500061, 5)
+scale = Vector2(0.48046875, 0.4921875)
+texture = ExtResource("6_mcbma")
+
+[node name="Enemy2" type="CharacterBody2D" parent="."]
+position = Vector2(523, 95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+position = Vector2(-3.25, -3)
+shape = SubResource("RectangleShape2D_ik71a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2"]
+position = Vector2(-4.5000076, -3.9999924)
+scale = Vector2(0.48046875, 0.4921875)
+texture = ExtResource("6_mcbma")
+
+[node name="Enemy3" type="CharacterBody2D" parent="."]
+position = Vector2(933, 95)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+position = Vector2(-4.25, 8)
+shape = SubResource("RectangleShape2D_ik71a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3"]
+position = Vector2(-5.5000076, 7.0000076)
+scale = Vector2(0.48046875, 0.4921875)
+texture = ExtResource("6_mcbma")
