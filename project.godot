@@ -14,3 +14,8 @@ config/name="SchwartzPatrol"
 run/main_scene="uid://cbxiadhrp1kpl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=700
+window/size/viewport_height=1100

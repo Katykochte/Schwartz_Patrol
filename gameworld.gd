@@ -8,7 +8,7 @@ var direction_map = {
 
 
 func _ready():
-	# $Background.size = get_viewport().size
+	$Background.size = get_viewport().get_visible_rect().size
 	$TextEdit.text_changed.connect(_on_text_changed)
 	
 

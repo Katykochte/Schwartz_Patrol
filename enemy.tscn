@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chsub8v78pn63"]
+
+[ext_resource type="Texture2D" uid="uid://b481follvtvhx" path="res://error.png" id="1_7k104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(109, 104)
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(91.5, 133)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(92.75001, 133.75)
+scale = Vector2(0.41601565, 0.4238281)
+texture = ExtResource("1_7k104")
