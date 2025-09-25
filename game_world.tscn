@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=8 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://gameworld.gd" id="1_ea1x0"]
 [ext_resource type="Texture2D" uid="uid://cnqievebyaefp" path="res://ground_grass.png" id="2_e3xe6"]
 [ext_resource type="Texture2D" uid="uid://btoavs6w5ny41" path="res://wall.jpg" id="3_mcbma"]
 [ext_resource type="PackedScene" uid="uid://myeh7sgmmvgs" path="res://player.tscn" id="5_e3xe6"]
 [ext_resource type="PackedScene" uid="uid://chsub8v78pn63" path="res://enemy.tscn" id="5_mcbma"]
+[ext_resource type="PackedScene" uid="uid://cf5kglbvaqoct" path="res://enemy2.tscn" id="6_mcbma"]
 
 [sub_resource type="Theme" id="Theme_e3xe6"]
 
@@ -45,8 +46,11 @@ theme_override_font_sizes/font_size = 18
 placeholder_text = "Enter cmd (a or d)"
 
 [node name="Player" parent="." instance=ExtResource("5_e3xe6")]
-position = Vector2(8, -71)
+position = Vector2(6, -75)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("5_mcbma")]
+[node name="Enemy" parent="." instance=ExtResource("5_mcbma")]
 position = Vector2(-1, 5)
 scale = Vector2(1.2, 1.2)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_mcbma")]
+position = Vector2(5, 4)
