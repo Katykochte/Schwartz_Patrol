@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbxiadhrp1kpl"]
+
+[ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
+[ext_resource type="Texture2D" uid="uid://cnqievebyaefp" path="res://images/ground_grass.png" id="2_u1jpj"]
+[ext_resource type="Texture2D" uid="uid://btoavs6w5ny41" path="res://images/wall.jpg" id="3_uh34q"]
+[ext_resource type="PackedScene" uid="uid://myeh7sgmmvgs" path="res://scenes/player.tscn" id="4_ph1f2"]
+[ext_resource type="PackedScene" uid="uid://chsub8v78pn63" path="res://scenes/enemy.tscn" id="5_odt01"]
+[ext_resource type="PackedScene" uid="uid://cf5kglbvaqoct" path="res://scenes/enemy2.tscn" id="6_6ll7h"]
+[ext_resource type="Script" uid="uid://8ywq77qk3a30" path="res://scripts/gamemanager.gd" id="7_dlaip"]
+[ext_resource type="Script" uid="uid://b58gy8c3ut0ga" path="res://scripts/gameoverscreen.gd" id="8_u4x5r"]
+
+[sub_resource type="Theme" id="Theme_e3xe6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
+size = Vector2(710.5, 140.5)
+
+[sub_resource type="SystemFont" id="SystemFont_e7o6u"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_pdbwf")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 716.0
+offset_bottom = 1100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_u1jpj")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 236.0
+offset_top = 903.0
+offset_right = 451.0
+offset_bottom = 949.0
+theme = SubResource("Theme_e3xe6")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Enter cmd (a or d)"
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(339, 816)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(13, -4)
+shape = SubResource("RectangleShape2D_mcbma")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+position = Vector2(19.04685, -2)
+scale = Vector2(1.1770833, 0.31225154)
+texture = ExtResource("3_uh34q")
+
+[node name="Player" parent="." instance=ExtResource("4_ph1f2")]
+position = Vector2(6, -75)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Enemy" parent="." instance=ExtResource("5_odt01")]
+position = Vector2(3, -1)
+collision_layer = 2
+
+[node name="Enemy2" parent="." instance=ExtResource("6_6ll7h")]
+position = Vector2(0, -2)
+collision_layer = 2
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("7_dlaip")
+
+[node name="GameOverScreen" type="CanvasLayer" parent="GameManager"]
+script = ExtResource("8_u4x5r")
+
+[node name="Control" type="Control" parent="GameManager/GameOverScreen"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GameManager/GameOverScreen/Control"]
+modulate = Color(1, 1, 1, 0.72156864)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 719.0
+offset_bottom = 1107.0
+color = Color(0.4035686, 0.7428123, 0.77233523, 1)
+
+[node name="Label" type="Label" parent="GameManager/GameOverScreen/Control"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 238.0
+offset_right = 517.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 46
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameManager/GameOverScreen/Control"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 616.0
+offset_right = 427.0
+offset_bottom = 689.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_e7o6u")
+theme_override_font_sizes/font_size = 26
+text = "RESTART"

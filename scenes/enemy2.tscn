@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf5kglbvaqoct"]
+
+[ext_resource type="Texture2D" uid="uid://b481follvtvhx" path="res://images/error.png" id="1_jfe6r"]
+[ext_resource type="Script" uid="uid://dhmaj7dwglp3x" path="res://scripts/enemy2.gd" id="1_jugo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jugo2"]
+size = Vector2(96, 98)
+
+[node name="Enemy2" type="CharacterBody2D"]
+script = ExtResource("1_jugo2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(450, 140)
+shape = SubResource("RectangleShape2D_jugo2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(453.00003, 141)
+scale = Vector2(0.4, 0.396)
+texture = ExtResource("1_jfe6r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2999999999999998
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
