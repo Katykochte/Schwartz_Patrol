@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsqb7b7pycjry"]
+
+[ext_resource type="Texture2D" uid="uid://dvwx5i2jnmixd" path="res://images/StartScreen.png" id="1_o7i0r"]
+[ext_resource type="Script" uid="uid://d1l612ye1mj23" path="res://scripts/start_screen.gd" id="2_he1sj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pevhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_afy8x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1na2"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.01
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 1490.0
+offset_bottom = 2259.0
+texture = ExtResource("1_o7i0r")
+stretch_mode = 5
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 1803.0
+offset_right = 946.0
+offset_bottom = 1896.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pevhg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_afy8x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k1na2")
+script = ExtResource("2_he1sj")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_start_button_pressed"]
