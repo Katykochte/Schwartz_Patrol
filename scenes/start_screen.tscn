@@ -22,19 +22,19 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 18.0
-offset_right = 1490.0
-offset_bottom = 2259.0
+offset_left = -54.0
+offset_right = 796.0
+offset_bottom = 1096.0
 texture = ExtResource("1_o7i0r")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 1803.0
-offset_right = 946.0
-offset_bottom = 1896.0
+offset_left = 297.0
+offset_top = 859.0
+offset_right = 446.0
+offset_bottom = 922.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pevhg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_afy8x")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_k1na2")
