@@ -39,7 +39,7 @@ func _ready():
 	
 	# Add enemies to group for GameManager
 	$Enemy.add_to_group("enemies")
-	$Enemy2.add_to_group("enemies")
+	$Enemy3.add_to_group("enemies")
 	
 	# Initially disable TextEdit - will be enabled when game starts
 	$TextEdit.editable = false
