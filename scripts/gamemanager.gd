@@ -29,7 +29,7 @@ func _ready():
 		start_screen.show_screen()
 	
 	# Initially stop all gameplay
-	stop_gameplay()
+	call_deferred("stop_gameplay")
 	
 # Function to stop all gameplay elements
 func stop_gameplay():
