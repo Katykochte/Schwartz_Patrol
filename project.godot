@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SchwartzPatrol"
-run/main_scene="uid://bsqb7b7pycjry"
+run/main_scene="uid://cbxiadhrp1kpl"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://images/icon.svg"
 

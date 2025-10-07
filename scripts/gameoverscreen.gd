@@ -1,10 +1,16 @@
-# gameoverscreen.gd —— 挂在 GameOverScreen (CanvasLayer)
+# gameoverscreen.gd (attach to the GameOverScreen CanvasLayer)
 extends CanvasLayer
 
-@onready var restart_button: Button = $"Control/Button"
+func _ready():
+	# Connect the restart button
+	$Control/Button.pressed.connect(_on_restart_button_pressed)
 
-func _ready() -> void:
-	restart_button.pressed.connect(_to_start)
+func show_screen():
+	visible = true
 
-func _to_start() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn") 
+func hide_screen():
+	visible = false
+
+# Calls restart game function for all in group
+func _on_restart_button_pressed():
+	get_tree().call_group("game_manager", "restart_game")

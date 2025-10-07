@@ -6,7 +6,7 @@ var direction_map = {
 }
 
 func _ready():
-	$Background.size = get_viewport().get_visible_rect().size
+	# $Background.size = get_viewport().get_visible_rect().size
 	# Connect textbox input
 	$TextEdit.text_changed.connect(_on_text_changed)
 	
@@ -14,8 +14,8 @@ func _ready():
 	$Enemy.add_to_group("enemies")
 	$Enemy2.add_to_group("enemies")
 	
-	# Make sure TextEdit has focus so we can type
-	$TextEdit.grab_focus()
+	# Initially disable TextEdit - will be enabled when game starts
+	$TextEdit.editable = false
 
 func _on_text_changed():
 	if $TextEdit.text.ends_with("\n"):
