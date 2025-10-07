@@ -17,6 +17,7 @@ func _ready():
 	print(name, " original position saved: ", original_position)
 
 func _on_timer_timeout() -> void:
+	
 	if not game_started:
 		return
 		
@@ -56,7 +57,8 @@ func check_collision_with_wall() -> bool:
 func reset_to_start():
 	# Move enemy to original position
 	position = original_position
-	# Restart game
+	# Restart game, reshow if "shot"
+	visible = true
 	game_started = true
 	# Debug prints
 	print(name, " reset to original: ", original_position)

@@ -42,6 +42,10 @@ func stop_gameplay():
 	var game_world = get_parent()
 	if game_world.has_node("TextEdit"):
 		game_world.get_node("TextEdit").editable = false
+		
+	# Hide quiz screen if visible
+	if game_world.has_node("QuizScreen"):
+		game_world.get_node("QuizScreen").hide_screen()
 
 # Function to start gameplay
 func start_gameplay():
