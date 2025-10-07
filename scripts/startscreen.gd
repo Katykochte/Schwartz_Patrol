@@ -1,4 +1,6 @@
-# startscreen.gd (attach to the StartScreen CanvasLayer)
+# startscreen.gd 
+# StartScreen script attach to the StartScreen CanvasLayer
+
 extends CanvasLayer
 
 func _ready():
@@ -6,11 +8,13 @@ func _ready():
 	$Control/Button.pressed.connect(_on_start_button_pressed)
 	
 	# Make sure start screen is visible initially
-	show()
+	show_screen()
 
+# Shows screen overlay
 func show_screen():
 	visible = true
-
+	
+# Hides screen overlay
 func hide_screen():
 	visible = false
 

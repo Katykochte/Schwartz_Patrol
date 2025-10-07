@@ -1,3 +1,6 @@
+# gameworld.gd
+# GameWorld script attach to GameWorld Node
+
 extends Node2D
 
 var direction_map = {
@@ -17,12 +20,14 @@ func _ready():
 	# Initially disable TextEdit - will be enabled when game starts
 	$TextEdit.editable = false
 
+# Takes input when enter is hit
 func _on_text_changed():
 	if $TextEdit.text.ends_with("\n"):
 		var command = $TextEdit.text.strip_edges().to_lower()
 		$TextEdit.text = ""
 		process_command(command)
 
+# Processes input command
 func process_command(command):
 	if command.length() == 0:
 		return

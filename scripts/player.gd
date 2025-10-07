@@ -1,4 +1,6 @@
-# player.gd (attach to the Player node)
+# player.gd
+# Player script attach to the Player scene
+
 extends CharacterBody2D
 
 var grid_size = 64

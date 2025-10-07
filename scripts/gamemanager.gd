@@ -1,8 +1,9 @@
-# gamemanager script attach to gamemanager node
 # gamemanager.gd
+# GameManager script attach to GameManager node
+
 extends Node
 
-# Make var for when needed
+# Make vars for screens when needed
 @onready var game_over_screen = get_parent().get_node("GameOverScreen")
 @onready var start_screen = get_parent().get_node("StartScreen")
 
@@ -10,6 +11,7 @@ extends Node
 func _ready():
 	# Add this node to game_manager group to be found easily
 	add_to_group("game_manager")
+	
 	# Initially hide game over screen, connect restart button
 	if game_over_screen:
 		game_over_screen.hide_screen()
@@ -17,7 +19,7 @@ func _ready():
 		if restart_button:
 			restart_button.pressed.connect(_on_restart_button_pressed)
 	
-	 # Connect start screen button
+	# Connect start screen button
 	if start_screen:
 		var start_button = start_screen.get_node("Control/Button")
 		if start_button:
@@ -31,6 +33,7 @@ func _ready():
 	
 # Function to stop all gameplay elements
 func stop_gameplay():
+	# Stop enemies
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.game_started = false
@@ -42,6 +45,7 @@ func stop_gameplay():
 
 # Function to start gameplay
 func start_gameplay():
+	# Start enemies
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.game_started = true
@@ -71,9 +75,11 @@ func start_game():
 # Function called when enemy collides with wall
 func game_over():
 	print("Game Over! The wall was breached!")
+	
 	# Show game over screen
 	if game_over_screen:
 		game_over_screen.show_screen()
+		
 	# Stop all gameplay
 	stop_gameplay()
 
@@ -98,7 +104,6 @@ func restart_game():
 	# Stop gameplay until start is pressed again
 	stop_gameplay()
 
-# Debuging mainly, could likely remove later *********
 # Function called when restart button clicked
 func _on_restart_button_pressed():
 	print("Restart button pressed!")

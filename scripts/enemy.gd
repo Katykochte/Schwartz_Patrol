@@ -1,4 +1,6 @@
-# enemy script attach to enemy scene
+# enemy.gd
+# Enemy script attach to Enemy scene
+
 extends CharacterBody2D
 
 var grid_size = 64
@@ -10,7 +12,7 @@ func _ready():
 	collision_layer = 2
 	collision_mask = 1
 	
-	# Save the starting position IMMEDIATELY before anything else
+	# Save the starting position before anything else
 	original_position = position
 	print(name, " original position saved: ", original_position)
 
@@ -48,7 +50,7 @@ func check_collision_with_wall() -> bool:
 		# Collison occured, return true
 		return collisions.size() > 0
 	
-	# N collison occured, return false
+	# No collison occured, return false
 	return false
 
 func reset_to_start():
@@ -56,5 +58,5 @@ func reset_to_start():
 	position = original_position
 	# Restart game
 	game_started = true
-	# Debig prints
+	# Debug prints
 	print(name, " reset to original: ", original_position)
