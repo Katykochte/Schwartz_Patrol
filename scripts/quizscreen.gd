@@ -21,9 +21,9 @@ func show_question(question_data: Dictionary, enemy: Node2D):
 	# Set up answer buttons
 	var answers = question_data["answers"]
 	var buttons = [
-		$Panel/GridContainer/Button,
-		$Panel/GridContainer/Button2, 
-		$Panel/GridContainer/Button3
+		$Panel/Button,
+		$Panel/Button2, 
+		$Panel/Button3
 	]
 	
 	for i in range(answers.size()):

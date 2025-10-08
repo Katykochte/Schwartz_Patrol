@@ -31,7 +31,6 @@ var quiz_questions = [
 ]
 
 func _ready():
-	# $Background.size = get_viewport().get_visible_rect().size
 	# Connect textbox input
 	$TextEdit.text_changed.connect(_on_text_changed)
 	# Connect quiz screen
@@ -98,8 +97,14 @@ func _on_quiz_completed(correct: bool):
 		# Hide "shot" enemy and stop it's movement
 		var enemy = $QuizScreen.target_enemy
 		enemy.visible = false
-		enemy.game_started = false  
-
+		enemy.game_started = false
 		print("Correct! Enemy gone!")
+		  
+		# Check if all enemies are defeated
+		get_tree().call_group("game_manager", "check_game_won_condition")
 	else:
 		print("Wrong answer - enemy continues moving")
+		
+# Function to check if game won
+func check_game_won_condition():
+	get_tree().call_group("game_manager", "check_game_won_condition")

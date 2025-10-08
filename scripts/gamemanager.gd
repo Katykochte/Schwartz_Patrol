@@ -31,6 +31,16 @@ func _ready():
 	# Initially stop all gameplay
 	call_deferred("stop_gameplay")
 	
+# Function to check if all enemies are defeated
+func check_game_won() -> bool:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		# Check if enemy is both valid and visible (not shot)
+		if is_instance_valid(enemy) and enemy.visible:
+			return false
+	# All enemies are either invalid or not visible, so game won
+	return true
+
 # Function to stop all gameplay elements
 func stop_gameplay():
 	# Stop enemies
@@ -82,10 +92,25 @@ func game_over():
 	
 	# Show game over screen
 	if game_over_screen:
-		game_over_screen.show_screen()
+		game_over_screen.show_game_over()
 		
 	# Stop all gameplay
 	stop_gameplay()
+
+# Function called when a game is won
+func game_won():
+	print("Game Won! All enemies defeated!")
+	
+	# Show game won screen
+	if game_over_screen:
+		game_over_screen.show_game_won()
+		
+	# Stop all gameplay
+	stop_gameplay()
+	
+func check_game_won_condition():
+	if check_game_won():
+		game_won()
 
 # Function to restart game
 func restart_game():
