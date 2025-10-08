@@ -18,7 +18,7 @@ var quiz_questions = [
 		"correct_index": 1
 	},
 	{
-		"question": "How do you see system stats?",
+		"question": "How do you see folder contents",
 		"answers": ["cd", "pwd", "ls"],
 		"correct_index": 2
 	},
