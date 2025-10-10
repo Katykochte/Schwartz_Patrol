@@ -86,6 +86,7 @@ script = ExtResource("8_u4x5r")
 
 [node name="Control" type="Control" parent="GameOverScreen"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 714.0
 offset_bottom = 1091.0
 

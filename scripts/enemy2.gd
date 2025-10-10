@@ -1,65 +1,40 @@
-# enemy2.gd
-# Enemy2 script attach to Enemy2 scene
-
 extends CharacterBody2D
 
-var grid_size = 64
-var game_started = true
-var original_position = Vector2.ZERO
+@export var grid_size: int = 64
+@export var step_duration: float = 0.25    
+var game_started := true
+var is_moving := false
+var original_position := Vector2.ZERO
 
-func _ready():
-	# Set up collision to only detect walls
+func _ready() -> void:
 	collision_layer = 2
 	collision_mask = 1
-	
-	# Save the starting position before anything else
-	original_position = position
-	print(name, " original position saved: ", original_position)
+	original_position = global_position
 
 func _on_timer_timeout() -> void:
-	
-	if not game_started:
+	if not game_started or is_moving:
 		return
-		
-	var target_position = position + (Vector2.DOWN * grid_size)
-	var current_position = position
-	
-	position = target_position
-	
-	if check_collision_with_wall():
-		position = current_position
+
+	var motion := Vector2.DOWN * grid_size
+
+	if test_move(global_transform, motion):
 		print("Enemy reached the wall! Game Over!")
-		# Calls the gameover funct in gamemanager.gd
 		get_tree().call_group("game_manager", "game_over")
-	else:
-		print("Enemy moved to: ", position)
+		return
 
+	is_moving = true
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "global_position", global_position + motion, step_duration)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func check_collision_with_wall() -> bool:
-	# Get current physics space of map
-	var space_state = get_world_2d().direct_space_state
-	# Make query about certain shape (enemy collison shape) 
-	var query = PhysicsShapeQueryParameters2D.new()
-	
-	# Make sure node has collison shape
-	if has_node("CollisionShape2D"):
-		query.shape = $CollisionShape2D.shape
-		# Set up to check for collisions with layer 1 (wall) 
-		query.transform = $CollisionShape2D.global_transform
-		query.collision_mask = 1
-		# Actual query of collisons 
-		var collisions = space_state.intersect_shape(query)
-		# Collison occured, return true
-		return collisions.size() > 0
-	
-	# No collison occured, return false
-	return false
+	tween.finished.connect(func ():
+		is_moving = false
+		print("Enemy moved to: ", global_position)
+	)
 
 func reset_to_start():
-	# Move enemy to original position
-	position = original_position
-	# Restart game, reshow if "shot"
+	is_moving = false
+	global_position = original_position
 	visible = true
 	game_started = true
-	# Debug prints
 	print(name, " reset to original: ", original_position)
