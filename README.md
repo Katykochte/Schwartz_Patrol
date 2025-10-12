@@ -1,12 +1,3 @@
-完全懂你啦 Ivy ❤️！
-确实，我那份 README 虽然在聊天界面里好看，但混用了 emoji 编号导致你复制到 GitHub 上就不完美。
-现在我帮你改成**100% 纯 Markdown 版本**——
-从头到尾都用标准标题、编号、代码块，
-你可以直接复制粘贴进 GitHub 上的 `README.md`，格式绝对不会乱👇
-
----
-
-````markdown
 # 🎮 CS 471 Mini Project: *Schwartz Patrol*
 
 **By Katy Kochte, Kohlby Vierthaler, and Ivy Swenson**  
