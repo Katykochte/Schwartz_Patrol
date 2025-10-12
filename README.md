@@ -1,11 +1,51 @@
-# CS 471 Mini Project: Schwartz Patrol
-By Katy Kochte, Kohlby Vierthaler, and Ivy Swenson
+# 🎮 CS 471 Mini Project: *Schwartz Patrol*
 
-### Instructions on how to open/import
-#### 1. Clone the repo to a new folder
-`git clone https://github.com/Katykochte/Schwartz_Patrol.git`
-#### 2. Open Godot Project Manager
-#### 3. Click "Import" 
-#### 4. Navigate to the cloned folder
-#### 5. Select project.godot file
-This should now open the project with all the features and such that Katy's had
+**By Katy Kochte, Kohlby Vierthaler, and Ivy Swenson**
+
+---
+
+## 🧭 Project Overview
+**Schwartz Patrol** is a command-line–learning tower-defense game built in **Godot 4**.  
+Players defend their base by answering Linux command-line questions correctly — each correct answer allows the player to attack the invading “computer virus” enemies.  
+
+The game combines fun and education, helping players learn basic terminal commands such as `ls`, `cd`, and `pwd` in an interactive way.
+
+---
+
+## ✨ Current Features (as of October 2025)
+
+- 🖥️ **Start Screen**  
+  - Cheerful blue-sky theme with terminal icons and Linux command hints (`ls`, `cd`, `pwd`).  
+  - Functional “START” button that transitions into gameplay.  
+
+- 🧱 **Independent Scene System**  
+  - `StartScreen`, `QuizScreen`, and `GameOverScreen` are now separate `.tscn` files.  
+  - Centralized control via `GameManager.gd`.  
+
+- 🧍‍♂️ **Professor Player (Dr. Schwartz!)**  
+  - Moves left and right with smooth animation.  
+  - Screen boundaries prevent walking off-screen.  
+
+- 💻 **Enemies**  
+  - Computer virus enemies that move smoothly downward using tween-based animation.  
+
+- 🏰 **Stone Barriers**  
+  - Visual walls on both sides of the road to enhance the game’s look and feel.  
+
+- 🧠 **Quiz Mechanic**  
+  - Command-line questions appear on screen.  
+  - Correct answers trigger player attacks.  
+  - Wrong answers allow enemies to advance toward the base.
+
+---
+
+## ⚙️ How to Open / Import the Project
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Katykochte/Schwartz_Patrol.git
+Scenes/
+ ┣ GameWorld.tscn       → main game logic (player, enemies, manager)
+ ┣ StartScreen.tscn     → intro screen with START button
+ ┣ QuizScreen.tscn      → question/answer gameplay
+ ┗ GameOverScreen.tscn  → end screen after failure or success
