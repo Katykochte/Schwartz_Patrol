@@ -57,12 +57,17 @@ Scenes/
 
 ## 🧠 Core Scripts
 
-| Script                   | Description                                             |
-| ------------------------ | ------------------------------------------------------- |
-| `player.gd`              | Handles player movement and prevents leaving the screen |
-| `enemy.gd` / `enemy2.gd` | Controls enemy motion and smooth tween-based descent    |
-| `barrier.gd`             | Adds visual stone walls to both ends of the road        |
-| `GameManager.gd`         | Manages screen switching and global game state          |
+| Script | Description |
+|--------|--------------|
+| **player.gd** | Controls player movement (`a` / `d` keys) and prevents the professor from moving outside the road area. |
+| **enemy.gd** | Handles the main enemy’s downward movement and collision with the wall; triggers Game Over when reaching the base. |
+| **enemy2.gd** | Similar to `enemy.gd`, but includes smooth tween-based animation for more natural motion. |
+| **gamemanager.gd** | Central script that manages scene transitions (Start → Quiz → GameOver), game states, and reset logic. |
+| **gameoverscreen.gd** | Controls the Game Over screen UI, including restart and quit button functionality. |
+| **gameworld.gd** | Manages the main game scene, coordinating player, enemies, and game manager interactions. |
+| **quizscreen.gd** | Displays command-line quiz questions and checks answers; correct answers trigger attacks, wrong ones advance enemies. |
+| **startscreen.gd** | Handles the Start Screen’s background image and Start button, transitioning to the quiz scene when pressed. |
+
 
 ---
 
@@ -90,7 +95,7 @@ This project combines **software engineering** principles with **educational gam
 
 | Name                  | Role                                                    |
 | --------------------- | ------------------------------------------------------- |
-| **Katy Kochte**       | Project Lead • UI design • Start Screen art             |
+| **Katy Kochte**       | Project Lead • UI design • Gameplay programming         |
 | **Kohlby Vierthaler** | Game art direction • Theme and environment design       |
 | **Ivy Swenson**       | Gameplay programming • Movement systems • Documentation |
 
@@ -108,8 +113,8 @@ This project combines **software engineering** principles with **educational gam
 
 ## 🏫 Course Information
 
-* **Course:** CS 471 — Software Engineering
-* **Instructor:** Dr. Schwartz
+* **Course:** CS 471 — Senior Capstone I
+* **Instructor:** Glenn G. Chappell
 * **Institution:** University of Alaska Fairbanks
 
 ---
