@@ -16,7 +16,7 @@ The project makes learning essential shell commands (`ls`, `cd`, `pwd`, etc.) en
 
 ## Current Features (as of October 2025)
 -  **Start Screen** with a bright blue-sky background and Linux command hints (`ls`, `cd`, `pwd`).  
--  **Independent Scene System:** `StartScreen`, `QuizScreen`, and `GameOverScreen` are separated into individual `.tscn` files, managed by a central `GameManager.gd`.  
+-  **Independent Screen System:** `StartScreen`, `QuizScreen`, and `GameOverScreen` are separated into individual CanvasOverlay nodes, managed by a central `GameManager.gd`.  
 -  **Functional “START” Button** — begins the game by switching to the quiz screen.  
 -  **Professor Player Model (Dr. Schwartz!)** — can move left/right with boundaries (no longer “walks off screen”).  
 -  **Enemy Computers** — move smoothly down toward the base using tween-based animation.  
