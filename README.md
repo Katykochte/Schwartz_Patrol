@@ -30,7 +30,7 @@ The project makes learning essential shell commands (`ls`, `cd`, `pwd`, etc.) en
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Katykochte/Schwartz_Patrol.git
-````
+
 
 
 
