@@ -45,17 +45,9 @@ The game combines fun and education, helping players learn basic terminal comman
    ```bash
    git clone https://github.com/Katykochte/Schwartz_Patrol.git
 2. **Open in Godot**
-   -launch Godot 4.x Project Manager
-   -Click Import
-   -Navigate to the cloned folder
-   -Select project.godot
-   -Click Import&Edit
+   - launch Godot 4.x Project Manager
+   - Click Import
+   - Navigate to the cloned folder
+   - Select project.godot
+   - Click Import&Edit
    This project will open with all assets, scripts, and scenes preloaded.
-3.**Scene Structure**
-   Scenes/
- ┣ GameWorld.tscn       → Main game (player, enemies, manager)
- ┣ StartScreen.tscn     → Intro screen with START button
- ┣ QuizScreen.tscn      → Question/answer gameplay
- ┗ GameOverScreen.tscn  → End screen
-
-   
