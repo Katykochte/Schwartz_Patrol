@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=14 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
 [ext_resource type="Texture2D" uid="uid://cnqievebyaefp" path="res://images/ground_grass.png" id="2_u1jpj"]
@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bxu101gg0df0j" path="res://scenes/enemy3.tscn" id="6_ph1f2"]
 [ext_resource type="Script" uid="uid://8ywq77qk3a30" path="res://scripts/gamemanager.gd" id="7_dlaip"]
 [ext_resource type="Script" uid="uid://b58gy8c3ut0ga" path="res://scripts/gameoverscreen.gd" id="8_u4x5r"]
-[ext_resource type="Script" uid="uid://c5i4wf6v6bu8q" path="res://scripts/startscreen.gd" id="9_uh34q"]
-[ext_resource type="Texture2D" uid="uid://kgi0wp1sycq" path="res://images/StartScreen.png" id="10_ph1f2"]
+[ext_resource type="PackedScene" uid="uid://bsqb7b7pycjry" path="res://scenes/start_screen.tscn" id="9_uh34q"]
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
 
 [sub_resource type="Theme" id="Theme_e3xe6"]
@@ -19,21 +18,15 @@ size = Vector2(762, 140.5)
 
 [sub_resource type="SystemFont" id="SystemFont_e7o6u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uh34q"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph1f2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odt01"]
-
 [node name="GameWorld" type="Node2D"]
 script = ExtResource("1_pdbwf")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
-offset_left = -1.0
-offset_top = -5.0
-offset_right = 716.0
-offset_bottom = 1100.0
+offset_left = -5.0
+offset_top = 2.0
+offset_right = 712.0
+offset_bottom = 1107.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_u1jpj")
@@ -120,34 +113,7 @@ theme_override_fonts/font = SubResource("SystemFont_e7o6u")
 theme_override_font_sizes/font_size = 30
 text = "RESTART"
 
-[node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("9_uh34q")
-
-[node name="Control" type="Control" parent="StartScreen"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="StartScreen/Control"]
-layout_mode = 0
-offset_left = -6.0
-offset_top = -3.0
-offset_right = 714.0
-offset_bottom = 1116.0
-texture = ExtResource("10_ph1f2")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="StartScreen/Control"]
-layout_mode = 0
-offset_left = 255.0
-offset_top = 871.0
-offset_right = 448.0
-offset_bottom = 947.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_uh34q")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ph1f2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_odt01")
+[node name="StartScreen" parent="." instance=ExtResource("9_uh34q")]
 
 [node name="QuizScreen" type="CanvasLayer" parent="."]
 visible = false

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsqb7b7pycjry"]
+
+[ext_resource type="Script" uid="uid://c5i4wf6v6bu8q" path="res://scripts/startscreen.gd" id="1_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://4big5yynggvs" path="res://images/NewStartScreen.png" id="2_he1sj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uh34q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ph1f2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odt01"]
+
+[node name="StartScreen" type="CanvasLayer"]
+script = ExtResource("1_o7i0r")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 713.0
+offset_bottom = 1115.0
+texture = ExtResource("2_he1sj")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 803.0
+offset_right = 447.0
+offset_bottom = 849.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uh34q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ph1f2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_odt01")
