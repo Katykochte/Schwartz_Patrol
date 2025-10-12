@@ -2,7 +2,7 @@
 # 🎮 CS 471 Mini Project: *Schwartz Patrol*
 
 **By Katy Kochte, Kohlby Vierthaler, and Ivy Swenson**  
-*University of Alaska Fairbanks — CS 471 Software Engineering*
+*University of Alaska Fairbanks — CS 471 Senior Capstone I*
 
 ---
 
