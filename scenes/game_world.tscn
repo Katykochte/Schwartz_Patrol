@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=15 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
-[ext_resource type="Texture2D" uid="uid://cnqievebyaefp" path="res://images/ground_grass.png" id="2_u1jpj"]
+[ext_resource type="Texture2D" uid="uid://clcqivq3d2fti" path="res://images/foreground.png" id="2_ph1f2"]
 [ext_resource type="Texture2D" uid="uid://btoavs6w5ny41" path="res://images/wall.jpg" id="3_uh34q"]
 [ext_resource type="PackedScene" uid="uid://myeh7sgmmvgs" path="res://scenes/player.tscn" id="4_ph1f2"]
 [ext_resource type="PackedScene" uid="uid://chsub8v78pn63" path="res://scenes/enemy.tscn" id="5_odt01"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://8ywq77qk3a30" path="res://scripts/gamemanager.gd" id="7_dlaip"]
 [ext_resource type="Script" uid="uid://b58gy8c3ut0ga" path="res://scripts/gameoverscreen.gd" id="8_u4x5r"]
 [ext_resource type="PackedScene" uid="uid://bsqb7b7pycjry" path="res://scenes/start_screen.tscn" id="9_uh34q"]
+[ext_resource type="Script" uid="uid://dggpuk8j87bel" path="res://scenes/helpscreen.gd" id="11_odt01"]
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
 
 [sub_resource type="Theme" id="Theme_e3xe6"]
@@ -23,13 +24,13 @@ script = ExtResource("1_pdbwf")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
-offset_left = -5.0
-offset_top = 2.0
-offset_right = 712.0
-offset_bottom = 1107.0
+offset_left = -14.0
+offset_top = -408.0
+offset_right = 724.0
+offset_bottom = 747.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_u1jpj")
+texture = ExtResource("2_ph1f2")
 expand_mode = 1
 stretch_mode = 6
 
@@ -44,6 +45,20 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/background_color = Color(0.09411765, 0.7294118, 0.8, 0.6)
 theme_override_font_sizes/font_size = 18
 placeholder_text = "Enter cmd (a or d)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 916.0
+offset_right = 121.0
+offset_bottom = 961.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 10.0
+offset_right = 69.0
+offset_bottom = 37.0
+text = "HELP"
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(339, 816)
@@ -114,6 +129,7 @@ theme_override_font_sizes/font_size = 30
 text = "RESTART"
 
 [node name="StartScreen" parent="." instance=ExtResource("9_uh34q")]
+visible = false
 
 [node name="QuizScreen" type="CanvasLayer" parent="."]
 visible = false
@@ -152,3 +168,35 @@ offset_left = 368.0
 offset_top = 194.0
 offset_right = 518.0
 offset_bottom = 234.0
+
+[node name="HelpScreen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("11_odt01")
+
+[node name="Panel" type="Panel" parent="HelpScreen"]
+offset_left = 102.0
+offset_top = 352.0
+offset_right = 617.0
+offset_bottom = 595.0
+
+[node name="Label" type="Label" parent="HelpScreen/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="HelpScreen/Panel"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 186.0
+offset_right = 305.0
+offset_bottom = 225.0
+
+[node name="Label" type="Label" parent="HelpScreen/Panel/Button"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 89.0
+offset_bottom = 38.0
+
+[connection signal="pressed" from="Button" to="HelpScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="HelpScreen/Panel/Button" to="HelpScreen" method="_on_button_pressed"]

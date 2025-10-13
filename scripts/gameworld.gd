@@ -26,6 +26,21 @@ var quiz_questions = [
 		"question": "How do you see you current path?",
 		"answers": ["pwd", "ls", "cd"],
 		"correct_index": 0
+	},
+	{
+		"question": "How do you search for text in a file?",
+		"answers": ["touch", "grep", "cat"],
+		"correct_index": 1
+	},
+	{
+		"question": "How do you create a file?",
+		"answers": ["grep", "cat", "touch"],
+		"correct_index": 2
+	},
+	{
+		"question": "How do you read text into a file?",
+		"answers": ["cat", "touch", "grep"],
+		"correct_index": 0
 	}
 	# Add more questions later !!!!!!?????
 ]

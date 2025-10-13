@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://myeh7sgmmvgs"]
+[gd_scene load_steps=6 format=3 uid="uid://myeh7sgmmvgs"]
 
 [ext_resource type="Texture2D" uid="uid://dlfbvmog4a5n3" path="res://images/Schwartz.jpg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c86bk0rg161ui" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://dqu87efxinuad" path="res://images/bowarrow.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b8n6dtdwn4iug" path="res://images/Bow.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c3itmmthsrqbs" path="res://images/Arrow.png" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(92.5, 121)
@@ -23,7 +24,12 @@ texture = ExtResource("1_4flbx")
 position = Vector2(47, 29)
 
 [node name="Bow" type="Sprite2D" parent="WeaponPos"]
-position = Vector2(1.8749968, 1.3750243)
-rotation = -0.59515727
-scale = Vector2(0.13330078, 0.12646475)
+position = Vector2(5.374997, 1.8750231)
+rotation = 1.600467
+scale = Vector2(0.15148059, 0.13159154)
 texture = ExtResource("3_qhqgy")
+
+[node name="Arrow" type="Sprite2D" parent="WeaponPos"]
+position = Vector2(6, -2)
+scale = Vector2(0.1747315, 0.1355722)
+texture = ExtResource("4_dqkch")
