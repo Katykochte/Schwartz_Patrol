@@ -66,11 +66,10 @@ The project should open with all assets, scripts, and scenes loaded.
 
 ## Future Expansion Plans
 
-1. Expand quiz bank to include more commands (`mkdir`, `touch`, `cat`, etc.)
-2. Improve overall visual polish and user feedback
-3. Add background music and dynamic sound effects
-4. Add randomized questions and a scoring system
-5. Introduce win/lose animations and sound effects
+1. Improve overall visual polish and user feedback
+2. Add background music and dynamic sound effects
+3. Add randomized questions and a scoring system
+4. Introduce win/lose animations and sound effects
 
 ---
 
