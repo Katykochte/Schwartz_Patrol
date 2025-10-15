@@ -104,6 +104,7 @@ position = Vector2(570, -50)
 script = ExtResource("7_dlaip")
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_odt01")
 
 [node name="Control" type="Control" parent="StartScreen"]

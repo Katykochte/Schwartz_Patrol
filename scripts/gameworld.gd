@@ -84,7 +84,6 @@ func process_command(command) -> void:
 
 # Arrow shooting function
 func try_shoot_arrow() -> bool:
-	# Don't allow shooting if quiz is already active
 	if $QuizScreen.visible:
 		print("Quiz already active!")
 		return false
@@ -92,7 +91,7 @@ func try_shoot_arrow() -> bool:
 	var player_pos = $Player.position
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	
-	# Calculate which "column" the player is in
+	# Calculate player "column" using grid alignment
 	var player_column = round(player_pos.x / grid_size)
 	
 	# Check if any enemy is in the same column
@@ -119,7 +118,7 @@ func _on_quiz_completed(correct: bool) -> void:
 		get_tree().call_group("game_manager", "check_game_won_condition")
 	else:
 		print("Wrong answer - enemy continues moving")
-		
+
 # Function to check if game won
 func check_game_won_condition() -> void:
 	get_tree().call_group("game_manager", "check_game_won_condition")

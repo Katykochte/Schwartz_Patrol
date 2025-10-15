@@ -11,6 +11,12 @@ func _ready() -> void:
 	collision_mask = 1
 	original_position = global_position
 
+func snap_to_grid() -> void:
+	# Snap position to the grid
+	var snapped_x = round(global_position.x / grid_size) * grid_size
+	var snapped_y = round(global_position.y / grid_size) * grid_size
+	global_position = Vector2(snapped_x, snapped_y)
+
 func _on_timer_timeout() -> void:
 	if not game_started or is_moving:
 		return
@@ -35,6 +41,7 @@ func _on_timer_timeout() -> void:
 func reset_to_start() -> void:
 	is_moving = false
 	global_position = original_position
+	snap_to_grid()
 	visible = true
 	game_started = true
 	print(name, " reset to original: ", original_position)
