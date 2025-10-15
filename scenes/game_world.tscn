@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://8ywq77qk3a30" path="res://scripts/gamemanager.gd" id="7_dlaip"]
 [ext_resource type="Script" uid="uid://b58gy8c3ut0ga" path="res://scripts/gameoverscreen.gd" id="8_u4x5r"]
 [ext_resource type="PackedScene" uid="uid://bsqb7b7pycjry" path="res://scenes/start_screen.tscn" id="9_uh34q"]
-[ext_resource type="Script" uid="uid://dggpuk8j87bel" path="res://scenes/helpscreen.gd" id="11_odt01"]
+[ext_resource type="Script" uid="uid://dggpuk8j87bel" path="res://scripts/helpscreen.gd" id="11_odt01"]
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
