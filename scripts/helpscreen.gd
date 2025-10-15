@@ -9,6 +9,7 @@ extends CanvasLayer
 func _on_button_pressed() -> void:
 	
 	if !visible:
+		get_tree().call_group("game_manager", "stop_gameplay")
 		visible = true
 		get_tree().call_group("game_manager", "pause_game")
 		help_label.text = "                                   <<Schwartz Patrol Help>>
@@ -22,3 +23,5 @@ func _on_button_pressed() -> void:
 		
 	else:
 		visible = false
+		get_tree().call_group("game_manager", "start_gameplay")
+		

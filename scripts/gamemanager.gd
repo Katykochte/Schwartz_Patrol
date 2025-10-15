@@ -6,18 +6,18 @@ extends Node
 # Make vars for screens when needed
 @onready var game_over_screen = get_parent().get_node("GameOverScreen")
 @onready var start_screen = get_parent().get_node("StartScreen")
+@onready var intro_screen = get_parent().get_node("IntroScreen")
+@onready var player = get_parent().get_node("Player")
+
 
 
 func _ready():
 	# Add this node to game_manager group to be found easily
 	add_to_group("game_manager")
 	
-	# Initially hide game over screen, connect restart button
+	# Initially hide game over screen
 	if game_over_screen:
 		game_over_screen.hide_screen()
-		var restart_button = game_over_screen.get_node("Control/Button")
-		if restart_button:
-			restart_button.pressed.connect(_on_restart_button_pressed)
 	
 	# Connect start screen button
 	if start_screen:
@@ -73,18 +73,9 @@ func start_gameplay():
 # Function called when start button is pressed
 func _on_start_button_pressed():
 	print("Start button pressed!")
-	start_game()
-
-# Function to start the game (from start screen)
-func start_game():
-	print("Starting game...")
-	
-	# Hide start screen
-	if start_screen:
-		start_screen.hide_screen()
-	
-	# Start gameplay elements
-	start_gameplay()
+	# Hide start screen and show next screen
+	start_screen.hide_screen()
+	intro_screen.show_screen()
 
 # Function called when enemy collides with wall
 func game_over():
@@ -119,8 +110,9 @@ func restart_game():
 	# Find all enemies, reset them
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
-		if enemy.has_method("reset_to_start"):
-			enemy.reset_to_start() 
+		enemy.reset_to_start() 
+		
+	# WRITE CODE TO RESET PLAYER TOO
 	
 	# Hide game over screen
 	if game_over_screen:
@@ -133,7 +125,20 @@ func restart_game():
 	# Stop gameplay until start is pressed again
 	stop_gameplay()
 
-# Function called when restart button clicked
-func _on_restart_button_pressed():
-	print("Restart button pressed!")
-	restart_game()
+
+func replay_game():
+	print("Replaying game - resetting characters")
+	
+	# Find all enemies, reset them
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		enemy.reset_to_start() 
+		
+	# WRITE CODE TO RESET PLAYER TOO
+	
+	# Hide game over screen
+	if game_over_screen:
+		game_over_screen.hide_screen()
+	
+	# Stop gameplay until start is pressed again
+	start_gameplay()

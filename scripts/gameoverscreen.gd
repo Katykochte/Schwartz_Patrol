@@ -3,12 +3,13 @@
 
 extends CanvasLayer
 
-@onready var title_label = $Control/Label  # Add this reference
+@onready var title_label = $Control/Label 
 
 # Set up restart button
 func _ready():
 	# Connect the restart button
 	$Control/Button.pressed.connect(_on_restart_button_pressed)
+	$Control/Button2.pressed.connect(_on_replay_button_pressed)
 
 # Shows screen overlay with game lost message  
 func show_game_over():
@@ -31,3 +32,6 @@ func hide_screen():
 # Calls restart game function for all in group
 func _on_restart_button_pressed():
 	get_tree().call_group("game_manager", "restart_game")
+	
+func _on_replay_button_pressed():
+	get_tree().call_group("game_manager", "replay_game")

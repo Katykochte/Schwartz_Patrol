@@ -20,4 +20,7 @@ func hide_screen():
 
 # Calls start game function for all in group
 func _on_start_button_pressed():
-	get_tree().call_group("game_manager", "start_game")
+	# Hide start screen
+	hide_screen()
+	
+	# get_tree().call_group("game_manager", "start_game")
