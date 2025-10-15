@@ -186,6 +186,7 @@ touch = creates files"
 horizontal_alignment = 1
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_u4x5r")
 
 [node name="Control" type="Control" parent="GameOverScreen"]

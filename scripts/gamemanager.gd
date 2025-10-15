@@ -10,14 +10,13 @@ extends Node
 @onready var player = get_parent().get_node("Player")
 
 
-
 func _ready():
 	# Add this node to game_manager group to be found easily
 	add_to_group("game_manager")
 	
 	# Initially hide game over screen
 	if game_over_screen:
-		game_over_screen.hide_screen()
+		game_over_screen.visible = false
 	
 	# Connect start screen button
 	if start_screen:
@@ -26,7 +25,7 @@ func _ready():
 			start_button.pressed.connect(_on_start_button_pressed)
 			
 		# Show start screen initially
-		start_screen.show_screen()
+		start_screen.visible = true
 	
 	# Initially stop all gameplay
 	call_deferred("stop_gameplay")
@@ -55,7 +54,7 @@ func stop_gameplay():
 		
 	# Hide quiz screen if visible
 	if game_world.has_node("QuizScreen"):
-		game_world.get_node("QuizScreen").hide_screen()
+		game_world.get_node("QuizScreen").visible = false
 
 # Function to start gameplay
 func start_gameplay():
@@ -74,8 +73,8 @@ func start_gameplay():
 func _on_start_button_pressed():
 	print("Start button pressed!")
 	# Hide start screen and show next screen
-	start_screen.hide_screen()
-	intro_screen.show_screen()
+	start_screen.visible = false
+	intro_screen.visible = true
 
 # Function called when enemy collides with wall
 func game_over():
@@ -116,11 +115,11 @@ func restart_game():
 	
 	# Hide game over screen
 	if game_over_screen:
-		game_over_screen.hide_screen()
+		game_over_screen.visible = false
 	
 	# Show start screen
 	if start_screen:
-		start_screen.show_screen()
+		start_screen.visible = true
 	
 	# Stop gameplay until start is pressed again
 	stop_gameplay()
@@ -138,7 +137,7 @@ func replay_game():
 	
 	# Hide game over screen
 	if game_over_screen:
-		game_over_screen.hide_screen()
+		game_over_screen.visible = false
 	
 	# Stop gameplay until start is pressed again
 	start_gameplay()

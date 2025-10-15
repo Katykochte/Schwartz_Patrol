@@ -9,7 +9,7 @@ var current_question: Dictionary
 var target_enemy: Node2D
 
 func _ready():
-	hide_screen()
+	visible = false
 
 func show_question(question_data: Dictionary, enemy: Node2D):
 	target_enemy = enemy
@@ -35,16 +35,10 @@ func show_question(question_data: Dictionary, enemy: Node2D):
 				button.pressed.disconnect(_on_answer_selected)
 			button.pressed.connect(_on_answer_selected.bind(i))
 	
-	show_screen()
+	visible = true
 
 func _on_answer_selected(answer_index: int):
 	# Check if pressed button matches answer
 	var correct = (answer_index == current_question["correct_index"])
 	emit_signal("quiz_completed", correct)
-	hide_screen()
-
-func show_screen():
-	visible = true
-
-func hide_screen():
 	visible = false
