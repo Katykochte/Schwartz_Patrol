@@ -1,7 +1,15 @@
 extends CharacterBody2D
 
 @export var grid_size: int = 64
-var is_moving := false
+var is_moving = false
+var original_position := Vector2.ZERO
+
+# Function to save position
+func _ready() -> void:
+	original_position = global_position
+
+func reset_to_start() -> void:
+	global_position = original_position
 
 func move_in_direction(direction: Vector2) -> bool:
 	if is_moving:

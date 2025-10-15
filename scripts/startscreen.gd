@@ -3,7 +3,7 @@
 
 extends CanvasLayer
 
-func _ready():
+func _ready() -> void:
 	# Connect the start button
 	$Control/Button.pressed.connect(_on_start_button_pressed)
 	
@@ -12,7 +12,7 @@ func _ready():
 
 
 # Calls start game function for all in group
-func _on_start_button_pressed():
+func _on_start_button_pressed() -> void:
 	# Hide start screen
 	visible = false
 	

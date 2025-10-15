@@ -32,7 +32,7 @@ func _on_timer_timeout() -> void:
 		print("Enemy moved to: ", global_position)
 	)
 
-func reset_to_start():
+func reset_to_start() -> void:
 	is_moving = false
 	global_position = original_position
 	visible = true

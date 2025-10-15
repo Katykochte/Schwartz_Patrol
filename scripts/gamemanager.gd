@@ -10,7 +10,7 @@ extends Node
 @onready var player = get_parent().get_node("Player")
 
 
-func _ready():
+func _ready() -> void:
 	# Add this node to game_manager group to be found easily
 	add_to_group("game_manager")
 	
@@ -41,7 +41,7 @@ func check_game_won() -> bool:
 	return true
 
 # Function to stop all gameplay elements
-func stop_gameplay():
+func stop_gameplay() -> void:
 	# Stop enemies
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
@@ -57,7 +57,7 @@ func stop_gameplay():
 		game_world.get_node("QuizScreen").visible = false
 
 # Function to start gameplay
-func start_gameplay():
+func start_gameplay() -> void:
 	# Start enemies
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
@@ -70,14 +70,14 @@ func start_gameplay():
 		game_world.get_node("TextEdit").grab_focus()
 
 # Function called when start button is pressed
-func _on_start_button_pressed():
+func _on_start_button_pressed() -> void:
 	print("Start button pressed!")
 	# Hide start screen and show next screen
 	start_screen.visible = false
 	intro_screen.visible = true
 
 # Function called when enemy collides with wall
-func game_over():
+func game_over() -> void:
 	print("Game Over! The wall was breached!")
 	
 	# Show game over screen
@@ -88,7 +88,7 @@ func game_over():
 	stop_gameplay()
 
 # Function called when a game is won
-func game_won():
+func game_won() -> void:
 	print("Game Won! All enemies defeated!")
 	
 	# Show game won screen
@@ -98,12 +98,12 @@ func game_won():
 	# Stop all gameplay
 	stop_gameplay()
 	
-func check_game_won_condition():
+func check_game_won_condition() -> void:
 	if check_game_won():
 		game_won()
 
 # Function to restart game
-func restart_game():
+func restart_game() -> void:
 	print("Restarting game - returning to start screen...")
 	
 	# Find all enemies, reset them
@@ -111,7 +111,8 @@ func restart_game():
 	for enemy in enemies:
 		enemy.reset_to_start() 
 		
-	# WRITE CODE TO RESET PLAYER TOO
+	# Reset Player position
+	player.reset_to_start()
 	
 	# Hide game over screen
 	if game_over_screen:
@@ -125,15 +126,16 @@ func restart_game():
 	stop_gameplay()
 
 
-func replay_game():
+func replay_game() -> void:
 	print("Replaying game - resetting characters")
 	
 	# Find all enemies, reset them
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.reset_to_start() 
-		
-	# WRITE CODE TO RESET PLAYER TOO
+	
+	# Reset Player position
+	player.reset_to_start()
 	
 	# Hide game over screen
 	if game_over_screen:

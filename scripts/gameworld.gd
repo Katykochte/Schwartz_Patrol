@@ -45,7 +45,7 @@ var quiz_questions = [
 	# Add more questions later !!!!!!?????
 ]
 
-func _ready():
+func _ready() -> void:
 	# Connect textbox input
 	$TextEdit.text_changed.connect(_on_text_changed)
 	# Connect quiz screen
@@ -59,14 +59,14 @@ func _ready():
 	$TextEdit.editable = false
 
 # Takes input when enter is hit
-func _on_text_changed():
+func _on_text_changed() -> void:
 	if $TextEdit.text.ends_with("\n"):
 		var command = $TextEdit.text.strip_edges().to_lower()
 		$TextEdit.text = ""
 		process_command(command)
 
 # Processes input command
-func process_command(command):
+func process_command(command) -> void:
 	if command.length() == 0:
 		return
 	
@@ -83,7 +83,7 @@ func process_command(command):
 				$Player.move_in_direction(direction_map[cmd_char])
 
 # Arrow shooting function
-func try_shoot_arrow():
+func try_shoot_arrow() -> bool:
 	# Don't allow shooting if quiz is already active
 	if $QuizScreen.visible:
 		print("Quiz already active!")
@@ -107,7 +107,7 @@ func try_shoot_arrow():
 	print("No enemy in sight to shoot!")
 	return false
 	
-func _on_quiz_completed(correct: bool):
+func _on_quiz_completed(correct: bool) -> void:
 	if correct and $QuizScreen.target_enemy and is_instance_valid($QuizScreen.target_enemy):
 		# Hide "shot" enemy and stop it's movement
 		var enemy = $QuizScreen.target_enemy
@@ -121,5 +121,5 @@ func _on_quiz_completed(correct: bool):
 		print("Wrong answer - enemy continues moving")
 		
 # Function to check if game won
-func check_game_won_condition():
+func check_game_won_condition() -> void:
 	get_tree().call_group("game_manager", "check_game_won_condition")

@@ -8,10 +8,10 @@ signal quiz_completed(correct_answer: bool)
 var current_question: Dictionary
 var target_enemy: Node2D
 
-func _ready():
+func _ready() -> void:
 	visible = false
 
-func show_question(question_data: Dictionary, enemy: Node2D):
+func show_question(question_data: Dictionary, enemy: Node2D) -> void:
 	target_enemy = enemy
 	current_question = question_data
 	
@@ -37,7 +37,7 @@ func show_question(question_data: Dictionary, enemy: Node2D):
 	
 	visible = true
 
-func _on_answer_selected(answer_index: int):
+func _on_answer_selected(answer_index: int) -> void:
 	# Check if pressed button matches answer
 	var correct = (answer_index == current_question["correct_index"])
 	emit_signal("quiz_completed", correct)
