@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=22 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
 [ext_resource type="Texture2D" uid="uid://dlpdml82o7qkx" path="res://images/grassnew.jpg" id="2_ph1f2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dggpuk8j87bel" path="res://scripts/helpscreen.gd" id="11_odt01"]
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
 [ext_resource type="Texture2D" uid="uid://cgj4g2opp86kp" path="res://images/InfoScreen.png" id="11_u4x5r"]
+[ext_resource type="Script" uid="uid://btvdjhxl0rq5l" path="res://scripts/factscreen.gd" id="12_u4x5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
 size = Vector2(806, 140.5)
@@ -103,14 +104,13 @@ position = Vector2(570, -50)
 script = ExtResource("7_dlaip")
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_odt01")
 
 [node name="Control" type="Control" parent="StartScreen"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 823.0
-offset_bottom = 1235.0
+offset_right = 805.0
+offset_bottom = 1204.0
 
 [node name="StartScreen" type="TextureRect" parent="StartScreen/Control"]
 layout_mode = 1
@@ -160,23 +160,67 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_4xvvt")
 
 [node name="Label" type="Label" parent="IntroScreen/Control"]
 layout_mode = 0
-offset_left = 134.0
-offset_top = 97.0
-offset_right = 663.0
-offset_bottom = 590.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 111.0
+offset_top = 100.0
+offset_right = 689.0
+offset_bottom = 593.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5411765)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Movement:
- Use A and D to move left and right.
+theme_override_font_sizes/font_size = 30
+text = "Movement: 
+Use A and D to move left and right.
 Weapon: 
-Use S to trigger a command quiz question.
+Use S to trigger a quiz question.
 Gameplay: 
-You must answer correctly and be in line with 
-enemies to shoot. Destroy all enemies before they 
-reach the wall to win.
+You must  be in line with 
+enemies to shoot. If you answer 
+the command line quiz right the 
+enemy will be eliminated. Destroy 
+all enemies before they reach the
+ wall to win."
+horizontal_alignment = 1
 
-Commands to learn for gameplay :
+[node name="FactScreen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("12_u4x5r")
+
+[node name="Control" type="Control" parent="FactScreen"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 1200.0
+
+[node name="FactScreen" type="TextureRect" parent="FactScreen/Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 800.0
+offset_bottom = 1200.0
+texture = ExtResource("11_u4x5r")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="FactScreen/Control"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 858.0
+offset_right = 521.0
+offset_bottom = 942.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dlaip")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u4x5r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4xvvt")
+
+[node name="Label" type="Label" parent="FactScreen/Control"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 136.0
+offset_right = 665.0
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4745098)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Commands to know to play :
+
 cd = changes directories
 ls = shows folder contents
 pwd = shows current path
@@ -277,29 +321,48 @@ visible = false
 script = ExtResource("11_odt01")
 
 [node name="Panel" type="Panel" parent="HelpScreen"]
-offset_left = 141.0
-offset_top = 374.0
-offset_right = 656.0
-offset_bottom = 617.0
+offset_left = 41.0
+offset_top = 100.0
+offset_right = 760.0
+offset_bottom = 724.0
 
 [node name="Label" type="Label" parent="HelpScreen/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 33.0
+offset_top = 30.0
+offset_right = 687.0
+offset_bottom = 533.0
+theme_override_font_sizes/font_size = 21
+text = "<< Schwartz Patrol Help >>
+Movement: Use A and D to move left and right.
+Weapon: Use S to trigger a quiz question.
+Gameplay: You must  be in line with enemies to shoot. 
+If you answer the command line quiz right the 
+enemy will be eliminated. Destroy all enemies before
+they reach the wall to win.
+
+Commands :
+cd = changes directories
+ls = shows folder contents
+pwd = shows current path
+cat = writes to files
+grep = searches files
+touch = creates files"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="HelpScreen/Panel"]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 186.0
-offset_right = 305.0
-offset_bottom = 225.0
+offset_left = 306.0
+offset_top = 560.0
+offset_right = 414.0
+offset_bottom = 599.0
 
 [node name="Label" type="Label" parent="HelpScreen/Panel/Button"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 9.0
-offset_right = 89.0
-offset_bottom = 38.0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 34.0
 
 [connection signal="pressed" from="Button" to="HelpScreen" method="_on_button_pressed"]
 [connection signal="pressed" from="HelpScreen/Panel/Button" to="HelpScreen" method="_on_button_pressed"]
