@@ -24,12 +24,13 @@ texture = ExtResource("1_4flbx")
 position = Vector2(47, 29)
 
 [node name="Bow" type="Sprite2D" parent="WeaponPos"]
-position = Vector2(5.374997, 1.8750231)
-rotation = 1.600467
+position = Vector2(44.135746, -30.762337)
+rotation = 2.1397736
 scale = Vector2(0.15148059, 0.13159154)
 texture = ExtResource("3_qhqgy")
 
 [node name="Arrow" type="Sprite2D" parent="WeaponPos"]
-position = Vector2(6, -2)
+position = Vector2(44.76075, -34.63736)
+rotation = 0.62831855
 scale = Vector2(0.1747315, 0.1355722)
 texture = ExtResource("4_dqkch")

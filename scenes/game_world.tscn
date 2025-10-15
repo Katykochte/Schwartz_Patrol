@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=14 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
-[ext_resource type="Texture2D" uid="uid://clcqivq3d2fti" path="res://images/foreground.png" id="2_ph1f2"]
-[ext_resource type="Texture2D" uid="uid://btoavs6w5ny41" path="res://images/wall.jpg" id="3_uh34q"]
+[ext_resource type="Texture2D" uid="uid://dlpdml82o7qkx" path="res://images/grassnew.jpg" id="2_ph1f2"]
+[ext_resource type="Texture2D" uid="uid://dpt15cl83b0rv" path="res://images/wall2.jpg" id="3_odt01"]
 [ext_resource type="PackedScene" uid="uid://myeh7sgmmvgs" path="res://scenes/player.tscn" id="4_ph1f2"]
 [ext_resource type="PackedScene" uid="uid://chsub8v78pn63" path="res://scenes/enemy.tscn" id="5_odt01"]
 [ext_resource type="PackedScene" uid="uid://bxu101gg0df0j" path="res://scenes/enemy3.tscn" id="6_ph1f2"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bsqb7b7pycjry" path="res://scenes/start_screen.tscn" id="9_uh34q"]
 [ext_resource type="Script" uid="uid://dggpuk8j87bel" path="res://scenes/helpscreen.gd" id="11_odt01"]
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
-
-[sub_resource type="Theme" id="Theme_e3xe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
 size = Vector2(762, 140.5)
@@ -34,32 +32,6 @@ texture = ExtResource("2_ph1f2")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 209.0
-offset_top = 903.0
-offset_right = 507.0
-offset_bottom = 971.0
-theme = SubResource("Theme_e3xe6")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/background_color = Color(0.09411765, 0.7294118, 0.8, 0.6)
-theme_override_font_sizes/font_size = 18
-placeholder_text = "Enter cmd (a or d)"
-
-[node name="Button" type="Button" parent="."]
-offset_left = 19.0
-offset_top = 916.0
-offset_right = 121.0
-offset_bottom = 961.0
-
-[node name="Label" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 10.0
-offset_right = 69.0
-offset_bottom = 37.0
-text = "HELP"
-
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(339, 816)
 collision_mask = 2
@@ -69,21 +41,55 @@ position = Vector2(14, -4)
 shape = SubResource("RectangleShape2D_mcbma")
 
 [node name="Sprite2D" type="Sprite2D" parent="Wall"]
-position = Vector2(19.04685, -2)
-scale = Vector2(1.1770833, 0.31225154)
-texture = ExtResource("3_uh34q")
+modulate = Color(1.1152579, 1.1152579, 1.1152579, 0.93333334)
+position = Vector2(16.999987, 99.99997)
+scale = Vector2(0.90612495, 0.6296948)
+texture = ExtResource("3_odt01")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -171.0
+offset_top = 946.0
+offset_right = 950.0
+offset_bottom = 2348.0
+texture = ExtResource("2_ph1f2")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 216.0
+offset_top = 972.0
+offset_right = 514.0
+offset_bottom = 1040.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 0.8745098, 0.8627451)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/background_color = Color(0.09411765, 0.7294118, 0.29803923, 0.44705883)
+theme_override_font_sizes/font_size = 18
+placeholder_text = "  Enter cmd (a, d or s)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 59.0
+offset_top = 984.0
+offset_right = 161.0
+offset_bottom = 1029.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 10.0
+offset_right = 69.0
+offset_bottom = 37.0
+text = "HELP"
 
 [node name="Player" parent="." instance=ExtResource("4_ph1f2")]
-position = Vector2(340, 821)
+position = Vector2(340, 831)
 collision_layer = 0
 collision_mask = 0
 
 [node name="Enemy" parent="." instance=ExtResource("5_odt01")]
-position = Vector2(170, 57)
+position = Vector2(186, -54)
 collision_layer = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("6_ph1f2")]
-position = Vector2(485, 59)
+position = Vector2(489, -52)
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("7_dlaip")
