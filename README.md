@@ -28,8 +28,8 @@ The project makes learning essential shell commands (`ls`, `cd`, `pwd`, etc.) en
 ## How to Open / Import the Project
 
 1. **Download Godot 4.5**
-   https://godotengine.org/download/archive/4.5-stable/
-   * Note, Godot is not very backwards compatible, so 4.5 is the only version we guarantee to work. *
+   * https://godotengine.org/download/archive/4.5-stable/
+   * Note, Godot is not very backwards compatible, so 4.5 is the only version we guarantee to work.
 
 2. **Clone the repository**
    ```bash
