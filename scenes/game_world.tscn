@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbxiadhrp1kpl"]
+[gd_scene load_steps=28 format=3 uid="uid://cbxiadhrp1kpl"]
 
 [ext_resource type="Script" uid="uid://71tn6l48t37g" path="res://scripts/gameworld.gd" id="1_pdbwf"]
 [ext_resource type="Texture2D" uid="uid://dlpdml82o7qkx" path="res://images/grassnew.jpg" id="2_ph1f2"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://mw68fo5aupnd" path="res://scripts/quizscreen.gd" id="11_ph1f2"]
 [ext_resource type="Texture2D" uid="uid://cgj4g2opp86kp" path="res://images/InfoScreen.png" id="11_u4x5r"]
 [ext_resource type="Script" uid="uid://btvdjhxl0rq5l" path="res://scripts/factscreen.gd" id="12_u4x5r"]
+[ext_resource type="Texture2D" uid="uid://bpmp1x1lrp3r5" path="res://images/GO.png" id="14_4xvvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcbma"]
 size = Vector2(806, 140.5)
@@ -25,7 +26,17 @@ size = Vector2(806, 140.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xvvt"]
 
-[sub_resource type="SystemFont" id="SystemFont_e7o6u"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oyepb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxaiy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mf52o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iokjm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg3oe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgh4l"]
 
 [sub_resource type="Theme" id="Theme_odt01"]
 
@@ -231,7 +242,6 @@ touch = creates files"
 horizontal_alignment = 1
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_u4x5r")
 
 [node name="Control" type="Control" parent="GameOverScreen"]
@@ -240,43 +250,34 @@ anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 1200.0
 
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen/Control"]
-modulate = Color(1, 1, 1, 0.72156864)
+[node name="TextureRect" type="TextureRect" parent="GameOverScreen/Control"]
 layout_mode = 0
-offset_right = 800.0
-offset_bottom = 1200.0
-color = Color(0.4035686, 0.7428123, 0.77233523, 1)
-
-[node name="Label" type="Label" parent="GameOverScreen/Control"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 239.0
-offset_right = 611.0
-offset_bottom = 461.0
-theme_override_font_sizes/font_size = 46
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 814.3334
+offset_bottom = 1203.0
+texture = ExtResource("14_4xvvt")
+expand_mode = 3
 
 [node name="Button" type="Button" parent="GameOverScreen/Control"]
 layout_mode = 0
-offset_left = 314.0
-offset_top = 531.0
-offset_right = 485.0
-offset_bottom = 604.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_e7o6u")
-theme_override_font_sizes/font_size = 30
-text = "RESTART"
+offset_left = 253.0
+offset_top = 671.0
+offset_right = 556.0
+offset_bottom = 751.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oyepb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xxaiy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mf52o")
 
 [node name="Button2" type="Button" parent="GameOverScreen/Control"]
 layout_mode = 0
-offset_left = 292.0
-offset_top = 632.0
-offset_right = 512.0
-offset_bottom = 703.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
-text = "PLAY AGAIN"
+offset_left = 242.0
+offset_top = 810.0
+offset_right = 575.0
+offset_bottom = 889.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iokjm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fg3oe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wgh4l")
 
 [node name="QuizScreen" type="CanvasLayer" parent="."]
 visible = false

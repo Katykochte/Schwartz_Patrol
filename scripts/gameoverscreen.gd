@@ -13,7 +13,6 @@ func _ready() -> void:
 
 # Shows screen overlay with game lost message  
 func show_game_over() -> void:
-	title_label.text = "Game Over!\nThe wall was breached!"
 	visible = true
 
 # Shows screen overlay with game won message  
