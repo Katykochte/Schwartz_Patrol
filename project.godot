@@ -13,7 +13,7 @@ config_version=5
 config/name="SchwartzPatrol"
 run/main_scene="uid://cbxiadhrp1kpl"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://images/icon.svg"
+config/icon="uid://u666sflkmlaj"
 
 [display]
 
@@ -25,3 +25,7 @@ window/size/viewport_height=1200
 2d_physics/layer_1="walls"
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="weapons"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
