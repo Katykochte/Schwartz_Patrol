@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://myeh7sgmmvgs"]
 
-[ext_resource type="Texture2D" uid="uid://dlfbvmog4a5n3" path="res://images/Schwartz.jpg" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://60mb3htgdcql" path="res://images/Schwartz.jpg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c86bk0rg161ui" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b8n6dtdwn4iug" path="res://images/Bow.png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c3itmmthsrqbs" path="res://images/Arrow.png" id="4_dqkch"]

@@ -1,5 +1,5 @@
-# gameoverscreen.gd
-# gameoverscreen script attach to the GameOverScreen CanvasLayer
+# gamelostscreen.gd
+# gamelostscreen script attach to the GameLostScreen CanvasLayer
 
 extends CanvasLayer
 

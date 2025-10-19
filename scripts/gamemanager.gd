@@ -5,8 +5,10 @@ extends Node
 
 # Make vars for screens when needed
 @onready var game_over_screen = get_parent().get_node("GameOverScreen")
+@onready var game_lost_screen = get_parent().get_node("GameLostScreen")
 @onready var start_screen = get_parent().get_node("StartScreen")
 @onready var intro_screen = get_parent().get_node("IntroScreen")
+@onready var help_screen = get_parent().get_node("HelpScreen")
 @onready var player = get_parent().get_node("Player")
 
 
@@ -14,9 +16,17 @@ func _ready() -> void:
 	# Add this node to game_manager group to be found easily
 	add_to_group("game_manager")
 	
-	# Initially hide game over screen
+	# Hide game won screen
 	if game_over_screen:
 		game_over_screen.visible = false
+	# Hide game lost screen
+	if game_lost_screen:
+		game_lost_screen.visible = false
+	# Hide help screen
+	if help_screen:
+		help_screen.visible = false
+		
+	
 	
 	# Connect start screen button
 	if start_screen:
@@ -29,16 +39,6 @@ func _ready() -> void:
 	
 	# Initially stop all gameplay
 	call_deferred("stop_gameplay")
-	
-# Function to check if all enemies are defeated
-func check_game_won() -> bool:
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemies:
-		# Check if enemy is both valid and visible (not shot)
-		if is_instance_valid(enemy) and enemy.visible:
-			return false
-	# All enemies are either invalid or not visible, so game won
-	return true
 
 # Function to stop all gameplay elements
 func stop_gameplay() -> void:
@@ -81,8 +81,8 @@ func game_over() -> void:
 	print("Game Over! The wall was breached!")
 	
 	# Show game over screen
-	if game_over_screen:
-		game_over_screen.show_game_over()
+	if game_lost_screen:
+		game_lost_screen.visible = true
 		
 	# Stop all gameplay
 	stop_gameplay()
@@ -93,17 +93,27 @@ func game_won() -> void:
 	
 	# Show game won screen
 	if game_over_screen:
-		game_over_screen.show_game_won()
+		game_over_screen.visible = true
 		
 	# Stop all gameplay
 	stop_gameplay()
-	
+
+# Function to check if all enemies are defeated
+func check_game_won() -> bool:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		# Check if enemy is both valid and visible (not shot)
+		if is_instance_valid(enemy) and enemy.visible:
+			return false
+	# All enemies are either invalid or not visible, so game won
+	return true
+
 func check_game_won_condition() -> void:
 	if check_game_won():
 		game_won()
 
 # Function to restart game
-func restart_game() -> void:
+func exit_game() -> void:
 	print("Restarting game - returning to start screen...")
 	
 	# Find all enemies, reset them
@@ -114,9 +124,12 @@ func restart_game() -> void:
 	# Reset Player position
 	player.reset_to_start()
 	
-	# Hide game over screen
+	# Hide game won screen
 	if game_over_screen:
 		game_over_screen.visible = false
+	# Hide game lost screen
+	if game_lost_screen:
+		game_lost_screen.visible = false
 	
 	# Show start screen
 	if start_screen:
@@ -137,9 +150,12 @@ func replay_game() -> void:
 	# Reset Player position
 	player.reset_to_start()
 	
-	# Hide game over screen
+	# Hide game won screen
 	if game_over_screen:
 		game_over_screen.visible = false
+	# Hide game lost screen
+	if game_lost_screen:
+		game_lost_screen.visible = false
 	
 	# Stop gameplay until start is pressed again
 	start_gameplay()
