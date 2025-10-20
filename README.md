@@ -28,19 +28,17 @@ The project makes learning essential shell commands (`ls`, `cd`, `pwd`, etc.) en
 ## How to Run Executables
 
 ### MacOS ###
-1. Download the game file (.dmg file).
+1. Download the game file (SchwartzPatrol.dmg).
 2. Double-click the .dmg file.
 3. A window will open with the .app file inside, double-click the icon.
 4. The app will now run in a pop-up window.
 5. Alternatively, you can drag the .app file to your Applications folder or Desktop and run it from there.
    
 ### Windows ###
-1. Download the game file (.zip file).
-2. Right-click the .zip file.
-3. Select "Extract All..."
-4. Choose where to extract the files.
-5. Double-click the .exe file (will have game logo).
-6. The app will now run in a pop-up window.
+1. Download the game files (SchwartzPatrol.exe & SchwartzPatrol.pck).
+2. Make sure they're in the same folder.
+3. Double-click the .exe file (will have game logo).
+4. The app will now run in a pop-up window.
 
 ---
 
